@@ -15,9 +15,9 @@ export const NavBar = React.memo(() => {
   return (
     <div style={navbarStyles} className='d-flex flex-column py-4'>
       <img src={logoBlue} className='w-100 px-2' />
-      <SizedBox size={80} />
+      <SizedBox height={80} />
       <NabBarSelect />
-      <SizedBox size={64} />
+      <SizedBox height={64} />
       <div className="flex-1">
         {
           navbarItems.map((item, i) => (
@@ -28,7 +28,7 @@ export const NavBar = React.memo(() => {
                 route={item.route}
                 selected={item.route === pathname}
               />
-              <SizedBox size={20} />
+              <SizedBox height={20} />
             </div>
           ))
         }

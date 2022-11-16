@@ -20,7 +20,7 @@ export const NavBarItem = React.memo(({ icon, route, title, selected }: Props) =
       <span className={`material-symbols-outlined ${selected ? 'color-primary-blue' : 'color-unselected'}`}>
         {icon}
       </span>
-      <SizedBox size={25} />
+      <SizedBox width={25} />
       <span className={`fw-500 ${selected ? 'color-primary-blue' : 'color-unselected'}`}>
         {title}
       </span>

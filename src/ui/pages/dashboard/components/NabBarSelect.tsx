@@ -12,7 +12,7 @@ export const NabBarSelect = React.memo(() => {
           Senseg
         </span>
       </div>
-      <SizedBox size={25} />
+      <SizedBox width={25} />
       <IconButton
         icon='expand_more'
         onClick={() => { }}

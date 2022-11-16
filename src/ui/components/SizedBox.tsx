@@ -1,9 +1,10 @@
 interface Props {
-  size: number;
+  width?: number;
+  height?: number;
 }
 
-export const SizedBox = ({ size }: Props) => {
+export const SizedBox = ({ width, height }: Props) => {
   return (
-    <div style={{ width: size, height: size }} />
+    <div style={{ width, height }} />
   )
 }
