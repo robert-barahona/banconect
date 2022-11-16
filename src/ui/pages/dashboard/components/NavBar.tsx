@@ -6,6 +6,7 @@ import { SizedBox } from "../../../components";
 import { navbarItems } from "../../../../utils";
 import { useLocation } from "react-router-dom";
 import { DashboardRoutes } from "../../../../routes";
+import { NAV_BAR_WIDTH } from "../../../../constants";
 
 export const NavBar = React.memo(() => {
 
@@ -44,7 +45,7 @@ export const NavBar = React.memo(() => {
 
 const navbarStyles: React.CSSProperties = {
   position: 'absolute',
-  width: 240,
+  width: NAV_BAR_WIDTH,
   bottom: 0,
   left: 0,
   top: 0,

@@ -1,5 +1,9 @@
+import { PageContainer } from "../components"
+
 export const ImplementPage = () => {
   return (
-    <div>implementPage</div>
+    <PageContainer>
+      <div>ImplementPage</div>
+    </PageContainer>
   )
 }

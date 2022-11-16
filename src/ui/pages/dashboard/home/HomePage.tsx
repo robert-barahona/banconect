@@ -1,5 +1,10 @@
+import { SizedBox } from "../../../components"
+import { PageContainer } from "../components"
+
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <PageContainer>
+      HomePage
+    </PageContainer>
   )
 }

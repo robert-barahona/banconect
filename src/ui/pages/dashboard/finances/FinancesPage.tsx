@@ -1,5 +1,9 @@
+import { PageContainer } from "../components"
+
 export const FinancesPage = () => {
   return (
-    <div>FinancesPage</div>
+    <PageContainer>
+      <div>FinancesPage</div>
+    </PageContainer>
   )
 }

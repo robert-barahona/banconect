@@ -12,4 +12,5 @@ export const Background = React.memo(() => {
 const bgStyle: React.CSSProperties = {
   top: 0,
   bottom: 0,
+  zIndex: -1,
 }
