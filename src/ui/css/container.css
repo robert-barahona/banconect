@@ -21,3 +21,10 @@
 .align-self-center {
     align-self: center !important;
 }
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(40px);
+    border-radius: 15px;
+    padding: 20px;
+}
