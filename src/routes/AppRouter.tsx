@@ -1,6 +1,6 @@
 import { MyRoutes, DashboardRouter } from "."
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import { DashboardPage, LoginPage } from "../ui/pages"
+import { LoginPage } from "../ui/pages"
 
 export const AppRouter = () => {
   return (

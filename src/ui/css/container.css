@@ -1,0 +1,15 @@
+.rounded-8 {
+    border-radius: 8px;
+}
+
+.h-full {
+    height: 100vh;
+}
+
+.flex-1 {
+    flex-grow: 1 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}

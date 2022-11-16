@@ -1,0 +1,16 @@
+:root {
+    --primary-blue: #2D29D1;
+    --primary-navbar-item: rgba(188, 187, 252, 0.7);
+}
+
+.bg-primary-navbar-item {
+    background: var(--primary-navbar-item);
+}
+
+.color-primary-blue {
+    color: var(--primary-blue);
+}
+
+.color-unselected {
+    color: #727272;
+}
