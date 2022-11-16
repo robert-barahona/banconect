@@ -1,10 +1,7 @@
-import { SizedBox } from "../../../components"
-import { PageContainer } from "../components"
+import { PageTitle } from "../components"
 
 export const HomePage = () => {
   return (
-    <PageContainer>
-      HomePage
-    </PageContainer>
+    <PageTitle title="Inicio" />
   )
 }

@@ -1,9 +1,7 @@
-import { PageContainer } from "../components"
+import { PageTitle } from "../components"
 
 export const ImplementPage = () => {
   return (
-    <PageContainer>
-      <div>ImplementPage</div>
-    </PageContainer>
+    <PageTitle title="Implementar" />
   )
 }
