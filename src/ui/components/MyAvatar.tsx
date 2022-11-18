@@ -7,7 +7,7 @@ interface Props {
 export const MyAvatar = React.memo(({ size }: Props) => {
   return (
     <div className='rounded-8 overflow-hidden' >
-      <img src="https://i.pravatar.cc/300" alt="avatar" height={size} width={size} style={{ objectFit: 'fill' }} />
+      <img src="https://i.pravatar.cc/300?ud=1" alt="avatar" height={size} width={size} style={{ objectFit: 'fill' }} />
     </div>
   )
 })
