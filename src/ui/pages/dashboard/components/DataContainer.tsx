@@ -4,9 +4,10 @@ import { SizedBox } from '../../../components';
 interface Props {
   title?: string;
   children?: React.ReactNode;
+  removeMarginBottom?: boolean;
 }
 
-export const DataContainer = React.memo(({ title, children }: Props) => {
+export const DataContainer = React.memo(({ title, removeMarginBottom = false, children }: Props) => {
   return (
     <>
       <div className='dashboard-container'>
@@ -19,7 +20,7 @@ export const DataContainer = React.memo(({ title, children }: Props) => {
         }
         {children}
       </div>
-      <SizedBox height={21} />
+      {!removeMarginBottom && <SizedBox height={21} />}
     </>
   )
 })

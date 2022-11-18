@@ -7,7 +7,15 @@ export const TopBar = React.memo(() => {
     <div>
       <div className="row justify-content-end">
         <div className="col-12 col-md-8 col-xl-7 d-flex">
-          <SearchBar />
+          <div style={searchBarStyle} className='d-flex px-3 py-2 rounded-8 flex-1 align-items-center'>
+            <input
+              className='flex-1'
+              placeholder='Toca para buscar'
+            />
+            <span className='material-symbols-outlined'>
+              search
+            </span>
+          </div>
           <SizedBox width={10} />
           <div className='d-flex'>
             <IconButton
@@ -28,3 +36,7 @@ export const TopBar = React.memo(() => {
     </div>
   )
 })
+
+const searchBarStyle: React.CSSProperties = {
+  background: 'rgba(243, 244, 245, 0.3)',
+}

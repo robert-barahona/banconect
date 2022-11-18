@@ -1,7 +1,7 @@
 import React from 'react'
 import { grey } from '../../../../theme'
 import { IconButton, SizedBox } from '../../../components'
-import { TransactionItem } from '.';
+import { SearchBar, TransactionItem } from '.';
 
 export const TransactionsList = React.memo(() => {
   return (
@@ -11,16 +11,7 @@ export const TransactionsList = React.memo(() => {
           Listado
         </span>
         <SizedBox width={10} />
-        <div className='d-flex align-items-center border-grey rounded-8 px-2 py-1 flex-1' style={{ height: 40 }}>
-          <span className='material-symbols-outlined'>
-            search
-          </span>
-          <SizedBox width={10} />
-          <input
-            className='flex-1'
-            placeholder='Buscar en el listado'
-          />
-        </div>
+        <SearchBar />
         <SizedBox width={10} />
 
         <IconButton
