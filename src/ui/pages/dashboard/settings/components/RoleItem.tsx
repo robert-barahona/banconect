@@ -11,13 +11,13 @@ interface Props {
 export const RoleItem = React.memo(({ email, role }: Props) => {
   return (
     <>
-      <div className="col-md-4 col-lg-3">
+      <div className="col-md-4 col-lg-3 pt-2">
         <Info title='Correo electrónico' info={email} />
       </div>
-      <div className="col-md-4 col-lg-3">
+      <div className="col-md-4 col-lg-3 pt-2">
         <Info title='Rol' info={role} />
       </div>
-      <div className="col-md-4 col-lg-6">
+      <div className="col-md-4 col-lg-6 pt-2">
         <div className="d-flex align-items-center">
           <IconButton
             icon='delete'

@@ -5,7 +5,7 @@ import { IconButton, MyInput, MySelect, SizedBox } from '../../../../components'
 export const UserRoleCreator = React.memo(() => {
   return (
     <div className='row align-items-end'>
-      <div className="col-md-4 col-lg-3">
+      <div className="col-md-4 col-lg-3 pt-2">
         <span className='fs-12 fw-500'>
           Correo electrónico
         </span>
@@ -15,7 +15,7 @@ export const UserRoleCreator = React.memo(() => {
           placeholder='Filled'
         />
       </div>
-      <div className="col-md-4 col-lg-3">
+      <div className="col-md-4 col-lg-3 pt-2">
         <span className='fs-12 fw-500'>
           Rol
         </span>
@@ -30,7 +30,7 @@ export const UserRoleCreator = React.memo(() => {
           keyValue='id'
         />
       </div>
-      <div className="col-md-4 col-lg-6">
+      <div className="col-md-4 col-lg-6 pt-3">
         <div className='d-flex'>
           <IconButton
             icon='add'
