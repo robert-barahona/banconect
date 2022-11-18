@@ -13,6 +13,7 @@ export const DownloadButton = React.memo(({ onOptions, onDownload }: Props) => {
       <IconButton
         icon="more_horiz"
         bgColor={lightEa}
+        height={40}
         onClick={onOptions}
       />
       <SizedBox width={16} />
@@ -22,6 +23,7 @@ export const DownloadButton = React.memo(({ onOptions, onDownload }: Props) => {
         onClick={onDownload}
         iconColor="white"
         width={160}
+        height={40}
         rightElement={(
           <span className="text-white fw-700 fs-16">
             Descargar

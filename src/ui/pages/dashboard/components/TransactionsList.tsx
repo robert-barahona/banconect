@@ -17,23 +17,27 @@ export const TransactionsList = React.memo(() => {
         <IconButton
           icon='filter_list'
           borderColor={grey}
+          height={40}
           rightElement={<span>Filtros</span>}
         />
         <SizedBox width={10} />
         <IconButton
           icon='calendar_month'
           borderColor={grey}
+          height={40}
           rightElement={<span>Fechas</span>}
         />
         <SizedBox width={10} />
         <IconButton
           icon='download'
           borderColor={grey}
+          height={40}
           rightElement={<span>Descargar</span>}
         />
         <SizedBox width={10} />
         <IconButton
           icon='more_horiz'
+          height={40}
           borderColor={grey}
         />
       </div>

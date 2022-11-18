@@ -14,7 +14,7 @@ interface Props {
   onClick?: () => void;
 }
 
-export const IconButton = React.memo(({ align = 'center', icon, iconColor, height = 40, bgColor, flexGrow, leftElement, rightElement, borderColor, width, onClick }: Props) => {
+export const IconButton = React.memo(({ align = 'center', icon, iconColor, height, bgColor, flexGrow, leftElement, rightElement, borderColor, width, onClick }: Props) => {
   return (
     <div
       style={{ background: bgColor, flexGrow, height: flexGrow ? undefined : height, width, border: borderColor && `1px solid ${borderColor}` }}
