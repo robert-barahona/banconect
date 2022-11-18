@@ -1,5 +1,5 @@
 import React from 'react'
-import { lightEa, primary } from '../../../../constants'
+import { lightEa, primary } from '../../../../theme'
 import { IconButton, SizedBox } from '../../../components'
 
 interface Props {

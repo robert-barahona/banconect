@@ -1,5 +1,5 @@
 import React from 'react'
-import { grey } from '../../../../constants'
+import { grey } from '../../../../theme'
 import { IconButton, SizedBox } from '../../../components'
 import { TransactionItem } from '.';
 

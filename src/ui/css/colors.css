@@ -10,6 +10,10 @@
     background: var(--primary-navbar-item);
 }
 
+.bg-primary-blue {
+    background: var(--primary-blue);
+}
+
 .color-primary-blue {
     color: var(--primary-blue);
 }
