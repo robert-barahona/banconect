@@ -9,3 +9,5 @@ export * from './DownloadButton';
 export * from './DataContainer';
 export * from './TransactionsList';
 export * from './TransactionItem';
+export * from './EarningsPayList';
+export * from './EarningsPayItem';

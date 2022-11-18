@@ -33,3 +33,13 @@ select {
   border: none;
   appearance: none;
 }
+
+.status-completed {
+  color: #008D0E;
+  background: rgba(116, 241, 85, 0.16);
+}
+
+.status-pending {
+  color: #00408D;
+  background: rgba(85, 112, 241, 0.16);
+}
