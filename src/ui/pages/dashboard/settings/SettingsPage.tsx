@@ -1,6 +1,6 @@
 import { SizedBox } from '../../../components'
 import { DataContainer, PageTitle } from '../components'
-import { AvatarOptions, EditProfileButton, HelpOptions, LegalOptions, MoreOptions, PersonalData, PreferencesData } from './components'
+import { AvatarOptions, EditProfileButton, HelpOptions, LegalOptions, MoreOptions, PersonalData, PreferencesData, UserRoleCreator, UserRolesList } from './components'
 
 export const SettingsPage = () => {
   return (
@@ -35,6 +35,12 @@ export const SettingsPage = () => {
             </div>
           </div>
         </div>
+      </DataContainer>
+      <DataContainer title='Agregar y modificar roles'>
+        <SizedBox height={32} />
+        <UserRolesList />
+        <SizedBox height={32} />
+        <UserRoleCreator />
       </DataContainer>
     </div>
   )

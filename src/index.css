@@ -20,11 +20,16 @@ input {
   border: transparent;
 }
 
-input:focus {
+/* input:focus {
   outline: none;
-}
+} */
 
 a:hover {
   color: var(--primary-blue) !important;
   cursor: pointer;
+}
+
+select {
+  border: none;
+  appearance: none;
 }
