@@ -1,5 +1,4 @@
 import React from 'react'
-import { SizedBox } from './SizedBox';
 
 interface Props {
   iconColor?: string;
@@ -9,14 +8,17 @@ interface Props {
   leftElement?: React.ReactNode;
   rightElement?: React.ReactNode;
   width?: number;
+  borderColor?: string;
+  align?: string;
+  height?: number;
   onClick?: () => void;
 }
 
-export const IconButton = React.memo(({ icon, iconColor, bgColor, flexGrow, leftElement, rightElement, width, onClick }: Props) => {
+export const IconButton = React.memo(({ align = 'center', icon, iconColor, height = 40, bgColor, flexGrow, leftElement, rightElement, borderColor, width, onClick }: Props) => {
   return (
     <div
-      style={{ background: bgColor, flexGrow, height: !flexGrow ? 40 : undefined, width }}
-      className={bgColor && 'pointer d-flex align-items-center justify-content-center rounded-8 px-2'}>
+      style={{ background: bgColor, flexGrow, height: flexGrow ? undefined : height, width, border: borderColor && `1px solid ${borderColor}` }}
+      className={bgColor || borderColor ? `pointer d-flex align-items-center justify-content-${align} rounded-8 px-2` : ''}>
       {leftElement && (
         <div className='pe-2'>
           {leftElement}

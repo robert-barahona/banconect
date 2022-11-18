@@ -1,3 +1,7 @@
+.rounded-4px {
+    border-radius: 4px;
+}
+
 .rounded-8 {
     border-radius: 8px;
 }
@@ -27,4 +31,8 @@
     backdrop-filter: blur(40px);
     border-radius: 15px;
     padding: 20px;
+}
+
+.border-grey {
+    border: 1px solid #53545c;
 }

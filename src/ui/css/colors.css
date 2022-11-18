@@ -3,6 +3,7 @@
     --primary-navbar-item: rgba(188, 187, 252, 0.7);
     --light-ea: #EAEAEA;
     --green: #2DB493;
+    --grey1: #6E7079;
 }
 
 .bg-primary-navbar-item {
@@ -23,4 +24,8 @@
 
 .text-green {
     color: var(--green);
+}
+
+.text-grey1 {
+    color: var(--grey1);
 }

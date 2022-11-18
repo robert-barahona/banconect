@@ -7,3 +7,5 @@ export * from './SearchBar';
 export * from './PageTitle';
 export * from './DownloadButton';
 export * from './DataContainer';
+export * from './TransactionsList';
+export * from './TransactionItem';

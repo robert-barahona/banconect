@@ -1,5 +1,5 @@
 import { IconButton, SizedBox } from "../../../components"
-import { DataContainer, PageTitle } from "../components"
+import { DataContainer, PageTitle, TransactionsList } from "../components"
 import graphic from "../../../../assets/images/graphic1.svg";
 
 export const HomePage = () => {
@@ -32,7 +32,8 @@ export const HomePage = () => {
 
       </DataContainer>
       <DataContainer title="Transacciones recientes" >
-
+        <SizedBox height={8} />
+        <TransactionsList />
       </DataContainer>
     </div>
   )
