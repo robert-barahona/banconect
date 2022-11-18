@@ -1,39 +1,42 @@
 import React from 'react'
 import { SizedBox } from '../../../components'
 import quayaquilLogo from '../../../../assets/images/b_guayaquil.svg';
+import { Status } from '.';
 
-export const TransactionItem = () => {
+interface Props {
+  date: Date;
+  id: string;
+  from: string;
+  bank: string;
+  status: number;
+  amount: number;
+}
+
+export const TransactionItem = React.memo(({ date, id, from, bank, status, amount }: Props) => {
   return (
     <>
       <div className="col-2">
-        2022/04/17, 12:00
+        {date.toLocaleDateString()}
       </div>
       <div className="col-2">
-        15834
+        {id}
       </div>
       <div className="col-2">
-        ANGEL BENAVIDES
+        {from}
       </div>
       <div className="col-2 d-flex align-items-center">
         <img src={quayaquilLogo} className='rounded-circle' />
         <SizedBox width={8} />
         <span>
-          B. Guayaquil
+          {bank}
         </span>
       </div>
       <div className="col-2">
-        <span style={completedStyle} className='rounded-8 px-2 py-1'>
-          Completado
-        </span>
+        <Status status={status} />
       </div>
       <div className="col-2">
-        =$250.00
+        ${amount.toFixed(2)}
       </div>
     </>
   )
-}
-
-const completedStyle: React.CSSProperties = {
-  background: '#E3FBE2',
-  color: '#008D0E',
-}
+})

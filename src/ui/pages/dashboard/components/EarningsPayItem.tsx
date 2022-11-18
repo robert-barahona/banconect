@@ -1,4 +1,5 @@
 import React from 'react'
+import { Status } from '.';
 
 interface Props {
   date: Date;
@@ -18,9 +19,7 @@ export const EarningsPayItem = React.memo(({ date, id, status, earning, commissi
         {id}
       </div>
       <div className="col-2">
-        <span className={`rounded-8 px-2 py-1 ${status === 1 ? 'status-completed' : 'status-pending'}`}>
-          {status === 1 ? 'Completado' : 'Pendiente'}
-        </span>
+        <Status status={status} />
       </div>
       <div className="col-2">
         ${earning.toFixed(2)}

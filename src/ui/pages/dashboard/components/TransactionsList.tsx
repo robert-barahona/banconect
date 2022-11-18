@@ -1,7 +1,7 @@
 import React from 'react'
 import { grey } from '../../../../theme'
-import { IconButton, SizedBox } from '../../../components'
-import { SearchBar, TransactionItem } from '.';
+import { IconButton, MyInput, SizedBox } from '../../../components'
+import { TransactionItem } from '.';
 
 export const TransactionsList = React.memo(() => {
   return (
@@ -11,7 +11,7 @@ export const TransactionsList = React.memo(() => {
           Listado
         </span>
         <SizedBox width={10} />
-        <SearchBar />
+        <MyInput icon='search' placeholder='Buscar' />
         <SizedBox width={10} />
 
         <IconButton
@@ -102,11 +102,32 @@ export const TransactionsList = React.memo(() => {
       <hr className='my-0' />
       <SizedBox height={8} />
       <div className="row text-grey1">
-        <TransactionItem />
-        <SizedBox height={8} />
-        <TransactionItem />
-        <SizedBox height={8} />
-        <TransactionItem />
+        <TransactionItem
+          date={new Date}
+          id='15834'
+          from='ANGEL BENAVIDES'
+          bank='B. Guayaquil'
+          status={0}
+          amount={100}
+        />
+        <SizedBox height={12} />
+        <TransactionItem
+          date={new Date}
+          id='15679'
+          from='LUIS SAMPEDRO'
+          bank='B. Guayaquil'
+          status={1}
+          amount={250}
+        />
+        <SizedBox height={12} />
+        <TransactionItem
+          date={new Date}
+          id='15186'
+          from='JESSICA MORÁN'
+          bank='B. Guayaquil'
+          status={1}
+          amount={60}
+        />
       </div>
       <SizedBox height={8} />
       <hr className='my-0' />

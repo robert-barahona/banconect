@@ -1,6 +1,5 @@
 import React from 'react'
 import { IconButton, MyAvatar, SizedBox } from '../../../components'
-import { SearchBar } from '.'
 
 export const TopBar = React.memo(() => {
   return (

@@ -1,5 +1,5 @@
-import { IconButton, SizedBox } from "../../../components"
-import { DataContainer, PageTitle, SearchBar } from "../components"
+import { IconButton, MyInput, SizedBox } from "../../../components"
+import { DataContainer, PageTitle } from "../components"
 import { DocumentationItem, ValueToCopy } from "./components"
 import { primary } from '../../../../theme';
 
@@ -56,7 +56,7 @@ export const ImplementPage = () => {
             Listado de temas
           </div>
           <div className="col-lg-6">
-            <SearchBar />
+            <MyInput icon='search' placeholder='Buscar' />
           </div>
         </div>
         <SizedBox height={32} />

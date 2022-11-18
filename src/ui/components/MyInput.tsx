@@ -8,7 +8,7 @@ interface Props {
 
 export const MyInput = React.memo(({ icon, placeholder }: Props) => {
   return (
-    <div className='d-flex position-relative' >
+    <div className='d-flex position-relative flex-1' >
       <input
         style={{ height: 40, paddingLeft: 40, }}
         className='border-grey rounded-8 pe-2 py-1 flex-1'

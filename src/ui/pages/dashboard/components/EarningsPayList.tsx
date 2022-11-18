@@ -1,7 +1,7 @@
 import React from 'react'
-import { EarningsPayItem, SearchBar } from '.'
+import { EarningsPayItem } from '.'
 import { grey } from '../../../../theme'
-import { IconButton, SizedBox } from '../../../components'
+import { IconButton, MyInput, SizedBox } from '../../../components'
 
 export const EarningsPayList = React.memo(() => {
   return (
@@ -11,7 +11,7 @@ export const EarningsPayList = React.memo(() => {
           Listado
         </span>
         <SizedBox width={10} />
-        <SearchBar />
+        <MyInput icon='search' placeholder='Buscar' />
         <SizedBox width={10} />
 
         <IconButton
