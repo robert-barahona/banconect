@@ -6,3 +6,4 @@ export * from './TopBar';
 export * from './SearchBar';
 export * from './PageTitle';
 export * from './DownloadButton';
+export * from './DataContainer';

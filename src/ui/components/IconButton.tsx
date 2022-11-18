@@ -15,7 +15,7 @@ interface Props {
 export const IconButton = React.memo(({ icon, iconColor, bgColor, flexGrow, leftElement, rightElement, width, onClick }: Props) => {
   return (
     <div
-      style={{ background: bgColor, flexGrow, height: !flexGrow ? 40 : undefined, width, }}
+      style={{ background: bgColor, flexGrow, height: !flexGrow ? 40 : undefined, width }}
       className={bgColor && 'pointer d-flex align-items-center justify-content-center rounded-8 px-2'}>
       {leftElement && (
         <div className='pe-2'>
