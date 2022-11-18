@@ -17,11 +17,11 @@ export const NavBarItem = React.memo(({ icon, route, title, selected }: Props) =
 
   return (
     <div className={`d-flex align-items-center p-3 rounded-8 pointer ${selected && 'bg-primary-navbar-item'}`} onClick={handlePress}>
-      <span className={`material-symbols-outlined ${selected ? 'color-primary-blue' : 'color-unselected'}`}>
+      <span className={`material-symbols-outlined ${selected ? 'text-primary-blue' : 'color-unselected'}`}>
         {icon}
       </span>
       <SizedBox width={25} />
-      <span className={`fw-500 ${selected ? 'color-primary-blue' : 'color-unselected'}`}>
+      <span className={`fw-500 ${selected ? 'text-primary-blue' : 'color-unselected'}`}>
         {title}
       </span>
     </div>

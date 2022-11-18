@@ -1,7 +1,6 @@
 import React from 'react'
 import { primary } from '../../../../../theme'
-import { SizedBox } from '../../../../components'
-import { MyButton } from '../../../../components/MyButton'
+import { SizedBox, MyButton } from '../../../../components'
 
 export const Filters = React.memo(() => {
   return (

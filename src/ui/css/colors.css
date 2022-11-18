@@ -4,6 +4,7 @@
     --light-ea: #EAEAEA;
     --green: #2DB493;
     --grey1: #6E7079;
+    --red: #E71E1E;
 }
 
 .bg-primary-navbar-item {
@@ -14,7 +15,7 @@
     background: var(--primary-blue);
 }
 
-.color-primary-blue {
+.text-primary-blue {
     color: var(--primary-blue);
 }
 
@@ -32,4 +33,12 @@
 
 .text-grey1 {
     color: var(--grey1);
+}
+
+.text-red {
+    color: var(--red);
+}
+
+.border-primary-blue {
+    border: 1px solid var(--primary-blue);
 }
