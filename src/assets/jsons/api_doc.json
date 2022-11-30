@@ -1,0 +1,580 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ResponseLogin": {
+				"description": "Login result details.",
+				"properties": {
+					"browserId": {
+						"type": "string",
+						"description": "Id of current session (Use it to confirm login or make a transaction)."
+					},
+					"codeRequired": {
+						"type": "boolean",
+						"description": "Flag indicating whether confirmation code is required."
+					}
+				},
+				"required": [
+					"browserId",
+					"codeRequired"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ResponseError": {
+				"description": "Error response.",
+				"properties": {
+					"errorMessage": {
+						"type": "string",
+						"description": "Error message."
+					},
+					"statusCode": {
+						"type": "number",
+						"format": "double",
+						"description": "Status code."
+					}
+				},
+				"required": [
+					"errorMessage",
+					"statusCode"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": {
+					"errorMessage": "Out-of-service system",
+					"statusCode": 501
+				}
+			},
+			"RequestLogin": {
+				"description": "Your credentials of Banco Pichincha platform.",
+				"properties": {
+					"username": {
+						"type": "string",
+						"description": "Username of Pichincha platform."
+					},
+					"password": {
+						"type": "string",
+						"description": "Password of Pichincha platform."
+					},
+					"bankId": {
+						"type": "string",
+						"description": "Banco Identifier."
+					}
+				},
+				"required": [
+					"username",
+					"password",
+					"bankId"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": {
+					"username": "Daniel1998",
+					"password": "Abc1029384756",
+					"bankId": "b80673bd-16c3-4523-8b17-2aaf80f0f46f"
+				}
+			},
+			"RequestConfirmLogin": {
+				"description": "Information to confirm login.",
+				"properties": {
+					"otpCode": {
+						"type": "string",
+						"description": "Access code generated in the mobile application to confirm login."
+					}
+				},
+				"required": [
+					"otpCode"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": {
+					"otpCode": "092341"
+				}
+			},
+			"Account": {
+				"description": "Bank account details.",
+				"properties": {
+					"alias": {
+						"type": "string",
+						"description": "Bank account name."
+					},
+					"number": {
+						"type": "string",
+						"description": "Bank account number."
+					},
+					"balance": {
+						"type": "number",
+						"format": "double",
+						"description": "Bank account balance."
+					}
+				},
+				"required": [
+					"alias",
+					"number",
+					"balance"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Bank": {
+				"description": "Bank details.",
+				"properties": {
+					"bankName": {
+						"type": "string",
+						"description": "Bank name."
+					},
+					"bankId": {
+						"type": "string",
+						"description": "Bank identifier."
+					},
+					"logoUrl": {
+						"type": "string",
+						"description": "Bank image logo url."
+					}
+				},
+				"required": [
+					"bankName",
+					"bankId",
+					"logoUrl"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": [
+						{
+              "bankId": "b80673bd-16c3-4523-8b17-2aaf80f0f46f",
+              "bankName": "Banco del Pichincha",
+              "logoUrl": "https://images.com/Banco-Pichincha.png"
+            },
+						{
+              "bankId": "cc10673b1-12c3-5525-8b18-2avcf80f0ff",
+              "bankName": "Banco del Loja",
+              "logoUrl": "https://images.com/Banco-Loja.png"
+            }
+					]
+			},
+			"ResponseTransfer": {
+				"description": "Transfer result.",
+				"properties": {
+					"transactionId": {
+						"type": "string",
+						"description": "Unique transaction identifier."
+					}
+				},
+				"required": [
+					"transactionId"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": {
+					"transactionId": "AC2143f4-f8db-40f5-8d2a-84d5f441122"
+				}
+			},
+			"RequestTransfer": {
+				"description": "Data required to make a bank transfer to senseg account.",
+				"properties": {
+					"originAccountNumber": {
+						"type": "string",
+						"description": "Your bank account from which you are transferring money."
+					},
+					"description": {
+						"type": "string",
+						"description": "Payment description."
+					},
+					"amount": {
+						"type": "number",
+						"format": "double",
+						"description": "The total amount you want to transfer."
+					}
+				},
+				"required": [
+					"originAccountNumber",
+					"amount"
+				],
+				"type": "object",
+				"additionalProperties": false,
+				"example": {
+					"originAccountNumber": "2156445322",
+					"description": "Taxi payment",
+					"amount": 74.58
+				}
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "pichincha-service-node",
+		"version": "1.0.0",
+		"description": "Scraper Banco Del Pichincha",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+	  "/pichincha/bank": {
+			"get": {
+				"operationId": "GetBanks",
+				"responses": {
+					"200": {
+						"description": "Get Banks Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Bank"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Returns the bank list avaliable on banconect.",
+				"tags": [
+					"pichincha"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Application identifier obtained from the banconect dashboard.",
+						"in": "header",
+						"name": "ApplicationId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/pichincha/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Login Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseLogin"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 400,
+											"errorMessage": "username is required"
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 500,
+											"errorMessage": "login credentials error"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Login with the username and password and returns a browserId. It is possible that after\r\nthis step it will be necessary to confirm the login with the confirmation code.",
+				"tags": [
+					"pichincha"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Application identifier obtained from the banconect dashboard.",
+						"in": "header",
+						"name": "ApplicationId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RequestLogin"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/pichincha/confirmLogin": {
+			"post": {
+				"operationId": "ConfirmLogin",
+				"responses": {
+					"200": {
+						"description": "Confirm Login Success"
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 400,
+											"errorMessage": "otpCode is required"
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 500,
+											"errorMessage": "invalid code"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Confirms the login when required. This endpoint should run only if the login\r\nresponse contains the codeRequired flag set to true.",
+				"tags": [
+					"pichincha"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Value obtained from the initial login response.",
+						"in": "header",
+						"name": "BrowserId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Application identifier obtained from the banconect dashboard.",
+						"in": "header",
+						"name": "ApplicationId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RequestConfirmLogin"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/pichincha/accounts": {
+			"get": {
+				"operationId": "GetAccounts",
+				"responses": {
+					"200": {
+						"description": "Get Accounts Success",
+						"content": {
+							"application/json": {
+							  						"schema": {
+								"$ref": "#/components/schemas/Account"
+							},
+								"example": [
+    						{
+    							"alias": "My savings",
+    							"number": "2206789934",
+    							"balance": 845.98
+    						},
+    						{
+    							"alias": "My Secondary Account",
+    							"number": "2283942210",
+    							"balance": 20.98
+    						}
+    					]
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Returns the bank list accounts of the logged in user.",
+				"tags": [
+					"pichincha"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Value obtained from the initial login response.",
+						"in": "header",
+						"name": "BrowserId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Application identifier obtained from the banconect dashboard.",
+						"in": "header",
+						"name": "ApplicationId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/pichincha/transfer": {
+			"post": {
+				"operationId": "Transfer",
+				"responses": {
+					"200": {
+						"description": "Transfer Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseTransfer"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 400,
+											"errorMessage": "originAccountNumber is required"
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseError"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 500,
+											"errorMessage": "not enough money in the selected account"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Transfers the specified amount from the origin account to senseg account.",
+				"tags": [
+					"pichincha"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Value obtained from the initial login response.",
+						"in": "header",
+						"name": "BrowserId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Application identifier obtained from the banconect dashboard.",
+						"in": "header",
+						"name": "ApplicationId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RequestTransfer"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
